@@ -1,66 +1,61 @@
 "use client";
 
 import React from "react";
-import { Sparkles, Heart, Compass } from "lucide-react";
+import Image from "next/image";
 import ScrollReveal from "../ui/ScrollReveal";
-import AnimatedText from "../ui/AnimatedText";
 
 export default function DifferenceSection() {
-  const points = [
-    {
-      icon: <Sparkles className="h-6 w-6 stroke-[1.25] text-sbg-black" />,
-      title: "Body-Type Intentional",
-      description:
-        "Every piece is designed around how it serves specific shapes, offering customizable elements to contour to your proportions.",
-    },
-    {
-      icon: <Heart className="h-6 w-6 stroke-[1.25] text-sbg-black" />,
-      title: "Styled, Not Sold",
-      description:
-        "We are not here to move inventory. Our primary objective is to empower you to look and feel authentic in your own skin.",
-    },
-    {
-      icon: <Compass className="h-6 w-6 stroke-[1.25] text-sbg-black" />,
-      title: "With You, Not For You",
-      description:
-        "Collaborative personal styling that treats you as the expert on your own body, teaching you rules that last a lifetime.",
-    },
-  ];
-
   return (
-    <section className="bg-sbg-offwhite w-full py-20 md:py-32">
+    <section className="bg-sbg-white w-full py-20 md:py-28 border-b border-sbg-border overflow-hidden select-none">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center max-w-xl mx-auto mb-16 md:mb-24">
-          <h2 className="font-display text-3xl md:text-4xl font-bold tracking-wide text-sbg-black uppercase">
-            <AnimatedText text="The SBG Difference" type="word" />
-          </h2>
-          <div className="h-0.5 w-12 bg-sbg-black mx-auto mt-4" />
+        
+        {/* Top Section Tag */}
+        <div className="text-center mb-10 md:mb-12">
+          <span className="text-[9px] tracking-[0.25em] font-bold text-sbg-grey uppercase">
+            THE SBG DIFFERENCE
+          </span>
         </div>
 
-        <ScrollReveal
-          staggerChildren={0.15}
-          className="grid grid-cols-1 md:grid-cols-3 gap-12 lg:gap-16"
-        >
-          {points.map((point, index) => (
-            <div
-              key={index}
-              className="flex flex-col items-center text-center space-y-6 group p-6 transition-all duration-300 hover:translate-y-[-4px]"
-            >
-              <div className="p-4 bg-sbg-white rounded-full border border-sbg-border/60 transition-transform duration-300 group-hover:scale-110 shadow-sm">
-                {point.icon}
-              </div>
-              <h3 className="font-display text-lg font-bold tracking-wider text-sbg-black uppercase">
-                {point.title}
-              </h3>
-              <p className="text-xs tracking-wider text-sbg-grey leading-relaxed max-w-sm">
-                {/* CLIENT COPY */}
-                {point.description}
-              </p>
-            </div>
-          ))}
+        {/* 1. LAYERED EDITORIAL ARTWORK BLOCK */}
+        <div className="relative flex flex-col justify-center items-center w-full min-h-[300px] md:min-h-[440px] mb-16 select-none">
+          {/* Layer 1: Back Text (Symmetric) */}
+          <h3 className="font-cursive text-[6.5rem] md:text-[9.5rem] text-sbg-black leading-none absolute z-0 select-none -translate-y-28 md:-translate-y-44 font-normal">
+            Symmetric
+          </h3>
+
+          {/* Layer 2: Center Image Card */}
+          <div className="w-[180px] h-[240px] md:w-[240px] md:h-[320px] relative z-10 bg-sbg-offwhite border border-sbg-border/60 shadow-sm overflow-hidden select-none">
+            <Image
+              src="/images/dress-black-detail.jpg"
+              alt="Detailed atelier cowl neck calibration drape"
+              fill
+              priority
+              className="object-cover"
+              sizes="(max-width: 768px) 180px, 240px"
+            />
+          </div>
+
+          {/* Layer 3: Front Text (SHAPE) */}
+          <h3 className="font-sans font-light text-[4.8rem] md:text-[7.8rem] tracking-[0.05em] text-sbg-black leading-none absolute z-20 select-none translate-y-8 md:translate-y-12 uppercase">
+            SHAPE
+          </h3>
+        </div>
+
+        {/* Tagline below graphic */}
+        <div className="text-center mb-16 md:mb-24">
+          <p className="text-[10px] tracking-[0.2em] uppercase text-sbg-black font-semibold">
+            ECHOES OF — <span className="italic font-display font-normal">SILHOUETTE HARMONY</span>
+          </p>
+        </div>
+
+        {/* 2. SINGLE EDITORIAL PARAGRAPH */}
+        <ScrollReveal className="max-w-2xl mx-auto text-center border-t border-sbg-border/60 pt-16 px-4">
+          <p className="text-[11px] md:text-[12px] tracking-wider text-sbg-grey leading-relaxed">
+            Every piece is designed around how it serves specific shapes, offering customizable elements to contour to your proportions rather than standard grids. We are not here to move inventory—our primary objective is to empower you to look and feel authentic in your own skin and capsule designs. This is collaborative personal styling that treats you as the expert on your own body, teaching you styling rules that last a lifetime.
+          </p>
         </ScrollReveal>
+
       </div>
     </section>
   );
 }
-

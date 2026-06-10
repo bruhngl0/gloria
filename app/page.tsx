@@ -1,7 +1,10 @@
 import React from "react";
 import HeroSection from "@/components/home/HeroSection";
 import MissionSection from "@/components/home/MissionSection";
+import FabricSection from "@/components/home/FabricSection";
 import FeaturedProductSection from "@/components/home/FeaturedProductSection";
+import MethodologySection from "@/components/home/MethodologySection";
+import InstagramSection from "@/components/home/InstagramSection";
 import DifferenceSection from "@/components/home/DifferenceSection";
 import ServicesTeaserSection from "@/components/home/ServicesTeaserSection";
 import { shopifyFetch, MOCK_PRODUCT } from "@/lib/shopify";
@@ -31,13 +34,22 @@ export default async function Home() {
       {/* 2. Typographic Brand Mission */}
       <MissionSection />
 
-      {/* 3. Featured Single SKU Section */}
+      {/* 3. Textile Craftsmanship */}
+      <FabricSection />
+
+      {/* 4. Featured Single SKU Section */}
       <FeaturedProductSection product={featuredProduct} />
 
-      {/* 4. Value Pillars */}
+      {/* 5. The Styling Methodology */}
+      <MethodologySection />
+
+      {/* 5.5. Curated Instagram Feed */}
+      <InstagramSection />
+
+      {/* 6. Value Pillars */}
       <DifferenceSection />
 
-      {/* 5. Consultation & Offerings Teaser */}
+      {/* 7. Consultation & Offerings Teaser */}
       <ServicesTeaserSection />
     </div>
   );

@@ -11,11 +11,11 @@ interface VariantSelectorProps {
 
 // Map color names to beautiful brand hex codes
 const COLOR_SWATCH_MAP: Record<string, string> = {
-  black: "#0A0A0A",
+  black: "#2B2B2B",
   red: "#8C1B1B", // Premium dark crimson red
   "baby blue": "#ABC5D9", // Editorial soft baby blue
   blue: "#ABC5D9",
-  onyx: "#0A0A0A",
+  onyx: "#2B2B2B",
   crimson: "#8C1B1B",
   french: "#ABC5D9"
 };

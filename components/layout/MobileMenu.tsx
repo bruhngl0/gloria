@@ -66,10 +66,10 @@ export default function MobileMenu({
                     <Link
                       href={link.href}
                       onClick={onClose}
-                      className={`text-xl tracking-widest uppercase font-display block py-2 ${
+                      className={`text-xl tracking-wider uppercase font-display block py-2 transition-colors text-sbg-black hover:opacity-70 ${
                         isActive(link.href)
-                          ? "font-semibold text-sbg-black pl-2 border-l-2 border-sbg-black"
-                          : "text-sbg-grey"
+                          ? "font-semibold pl-2 border-l-2 border-sbg-black"
+                          : "font-normal"
                       }`}
                     >
                       {link.label}

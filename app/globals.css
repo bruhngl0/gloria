@@ -1,15 +1,20 @@
 @import "tailwindcss";
 
 @theme {
-  --color-sbg-black: #0A0A0A;
-  --color-sbg-white: #FFFFFF;
-  --color-sbg-offwhite: #FAFAFA;
+  --color-sbg-black: #2B2B2B;
+  --color-sbg-white: #F2F2F2;
+  --color-sbg-offwhite: #EAEAEA;
   --color-sbg-grey: #666666;
   --color-sbg-border: #E0E0E0;
   --color-sbg-hover: #F5F5F5;
+  --color-sbg-gold: #C5A880;
+
+  --color-white: #F2F2F2;
+  --color-black: #2B2B2B;
 
   --font-display: var(--font-cormorant), serif;
   --font-body: var(--font-dm-sans), sans-serif;
+  --font-cursive: var(--font-pinyon), cursive;
 
   --animate-accordion-down: accordion-down 0.2s ease-out;
   --animate-accordion-up: accordion-up 0.2s ease-out;

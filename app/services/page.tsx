@@ -3,6 +3,10 @@ import { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
 import ScrollReveal from "@/components/ui/ScrollReveal";
+import ConsultationBox from "@/components/services/ConsultationBox";
+import ServiceCard from "@/components/services/ServiceCard";
+import CaseStudies from "@/components/services/CaseStudies";
+import StylingFAQ from "@/components/services/StylingFAQ";
 
 export const metadata: Metadata = {
   title: "Styling Services | Styled by Gloria",
@@ -76,32 +80,7 @@ export default function ServicesPage() {
         </ScrollReveal>
 
         {/* Section 2: Consultation CTA Box (Above Fold, Prominent) */}
-        <ScrollReveal y={20} className="max-w-3xl mx-auto border border-sbg-black p-8 md:p-12 mb-20 text-center space-y-6">
-          <span className="text-[10px] font-bold tracking-[0.3em] uppercase text-sbg-grey block">
-            Start Here
-          </span>
-          <h2 className="font-display text-2xl md:text-3xl font-bold text-sbg-black uppercase tracking-wider">
-            30-Minute Initial Consultation
-          </h2>
-          <p className="text-xs tracking-wider leading-relaxed text-sbg-grey max-w-xl mx-auto">
-            {/* CLIENT COPY */}
-            New to SBG? Every full styling experience begins here. In this virtual meet-up, we'll discuss your styling goals, identify your shape profile, and match you with the perfect program.
-          </p>
-          <p className="text-sm font-semibold tracking-wider text-sbg-black">
-            $25.00 CAD
-          </p>
-          <div className="pt-2">
-            {/* Direct Booking to Calendly */}
-            <a
-              href="https://calendly.com/styledbygloria/30min"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center justify-center px-8 py-4 border border-sbg-black text-xs font-bold uppercase tracking-widest bg-sbg-black text-sbg-white hover:bg-sbg-white hover:text-sbg-black transition-all duration-300 w-full sm:w-auto"
-            >
-              Book Your Consultation
-            </a>
-          </div>
-        </ScrollReveal>
+        <ConsultationBox />
 
         {/* Section 3: Service Cards */}
         <div className="mb-24">
@@ -116,49 +95,13 @@ export default function ServicesPage() {
 
           <ScrollReveal staggerChildren={0.15} delay={0.2} className="grid grid-cols-1 md:grid-cols-2 gap-8">
             {services.map((service, index) => (
-              <div
-                key={index}
-                className="border border-sbg-border p-8 md:p-10 flex flex-col justify-between space-y-8 bg-sbg-white hover:border-sbg-black transition-colors duration-300"
-              >
-                <div className="space-y-6">
-                  {/* Title & Badge */}
-                  <div className="space-y-3">
-                    <div className="flex flex-wrap items-center gap-2">
-                      <span className="bg-sbg-hover text-sbg-grey text-[9px] font-bold tracking-wider uppercase px-2 py-0.5 border border-sbg-border/30">
-                        {service.badge}
-                      </span>
-                      <span className="text-[9px] font-bold tracking-wider uppercase text-sbg-grey/85">
-                        {service.duration}
-                      </span>
-                    </div>
-                    <h3 className="font-display text-lg md:text-xl font-bold tracking-wide text-sbg-black uppercase">
-                      {service.title}
-                    </h3>
-                  </div>
-
-                  {/* Bullet points */}
-                  <ul className="space-y-3 text-xs tracking-wider text-sbg-grey list-disc pl-4 leading-relaxed">
-                    {service.bullets.map((bullet, idx) => (
-                      <li key={idx}>{bullet}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                {/* Inquiry Link */}
-                <div className="pt-4 border-t border-sbg-border/60">
-                  <Link
-                    href={`/contact?subject=Styling%20Services&service=${encodeURIComponent(
-                      service.title
-                    )}`}
-                    className="inline-flex items-center justify-center px-6 py-3.5 border border-sbg-black text-[10px] font-bold uppercase tracking-widest bg-sbg-white text-sbg-black hover:bg-sbg-black hover:text-sbg-white transition-all duration-300 w-full"
-                  >
-                    Enquire About This Service
-                  </Link>
-                </div>
-              </div>
+              <ServiceCard service={service} key={index} />
             ))}
           </ScrollReveal>
         </div>
+
+        {/* Case Studies Transformations */}
+        <CaseStudies />
 
         {/* Section 4: Styling Team */}
         <div className="border-t border-sbg-border pt-20 mb-16">
@@ -198,6 +141,9 @@ export default function ServicesPage() {
             </ScrollReveal>
           </div>
         </div>
+
+        {/* Styling Frequently Asked Questions */}
+        <StylingFAQ />
 
         {/* Section 5: Footer Note */}
         <div className="text-center py-6 border-t border-sbg-border/60">

@@ -5,6 +5,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { Product } from "@/types/shopify";
 import BodyTypeTags from "../product/BodyTypeTags";
+import ParallaxImage from "../ui/ParallaxImage";
 import ScrollReveal from "../ui/ScrollReveal";
 
 interface FeaturedProductSectionProps {
@@ -19,16 +20,20 @@ export default function FeaturedProductSection({ product }: FeaturedProductSecti
     <section className="bg-sbg-white w-full py-16 md:py-28">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
-          {/* Left Column: Image (60% equivalent span 7) */}
-          <ScrollReveal className="lg:col-span-7 w-full relative aspect-[3/4] border border-sbg-border overflow-hidden bg-sbg-offwhite" y={20}>
-            <Image
-              src={mainImage}
-              alt={mainImageAlt}
-              fill
-              sizes="(max-width: 1024px) 100vw, 55vw"
-              className="object-cover object-top hover:scale-[1.02] transition-transform duration-500"
-            />
-          </ScrollReveal>
+          {/* Left Column: Image (60% equivalent span 7) with parallax and offset border */}
+          <div className="lg:col-span-7 relative group">
+            <div className="absolute inset-0 border border-sbg-border translate-x-4 translate-y-4 transition-transform duration-500 group-hover:translate-x-2 group-hover:translate-y-2 pointer-events-none" />
+            <ScrollReveal className="relative w-full aspect-[3/4] border border-sbg-black overflow-hidden bg-sbg-offwhite z-10" y={25}>
+              <ParallaxImage
+                src={mainImage}
+                alt={mainImageAlt}
+                sizes="(max-width: 1024px) 100vw, 55vw"
+                speed={0.12}
+                className="object-top"
+                containerClassName="w-full h-full"
+              />
+            </ScrollReveal>
+          </div>
 
           {/* Right Column: Copy & Actions (40% equivalent span 5) */}
           <ScrollReveal staggerChildren={0.12} delay={0.1} className="lg:col-span-5 space-y-8">

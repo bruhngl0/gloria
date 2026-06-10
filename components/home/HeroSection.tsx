@@ -27,7 +27,7 @@ export default function HeroSection({ product }: HeroSectionProps) {
     "Baby Blue": "French Blue",
   };
   const colorHex: Record<string, string> = {
-    "Black": "#0A0A0A",
+    "Black": "#2B2B2B",
     "Red": "#A62626",
     "Baby Blue": "#5F85A6",
   };
@@ -137,7 +137,7 @@ export default function HeroSection({ product }: HeroSectionProps) {
       <div className="hidden md:grid md:grid-cols-12 h-[calc(100vh-64px)] overflow-hidden w-full bg-sbg-white">
 
         {/* --- LEFT COLUMN: Brand Wordmark Track & Editorial Navigation --- */}
-        <div className="col-span-2 flex h-full border-r border-sbg-border bg-sbg-white select-none">
+        <div className="col-span-3 flex h-full border-r border-sbg-border bg-sbg-white select-none">
           {/* Vertical brand title container */}
           <div className="w-[60px] lg:w-[65px] h-full border-r border-sbg-border flex items-center justify-center relative py-8">
             <motion.span
@@ -206,7 +206,7 @@ export default function HeroSection({ product }: HeroSectionProps) {
         </div>
 
         {/* --- CENTER COLUMN: Full-Height Immersive Lookbook Cover --- */}
-        <div className="col-span-7 flex flex-col relative h-full bg-sbg-offwhite border-r border-sbg-border overflow-hidden group/center">
+        <div className="col-span-6 flex flex-col relative h-full bg-sbg-offwhite border-r border-sbg-border overflow-hidden group/center">
 
           {/* Main Visual Slider */}
           <div className="absolute inset-0 w-full h-full">
@@ -295,19 +295,15 @@ export default function HeroSection({ product }: HeroSectionProps) {
                 onClick={() => setIsDetailView((prev) => !prev)}
                 className="group/thumb relative aspect-[4/3] w-full bg-sbg-offwhite border border-sbg-border overflow-hidden cursor-pointer shadow-sm"
               >
-                <Image
-                  src={isDetailView ? activeImages.main : activeImages.detail}
-                  alt="Detailed material view"
-                  fill
-                  className="object-cover transition-transform duration-500 group-hover/thumb:scale-105"
-                  sizes="25vw"
+                <video
+                  src="/images/shortdes.mp4"
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="object-cover w-full h-full transition-transform duration-500 group-hover/thumb:scale-105"
                 />
-                <div className="absolute inset-0 bg-sbg-black/10 transition-colors group-hover/thumb:bg-sbg-black/25 flex items-center justify-center">
-                  <div className="bg-sbg-white/95 text-sbg-black text-[8px] tracking-[0.2em] uppercase font-bold py-1.5 px-3 shadow border border-sbg-border/60 flex items-center space-x-1">
-                    <Eye className="h-3 w-3" />
-                    <span>{isDetailView ? "VIEW FRONT" : "VIEW BACK"}</span>
-                  </div>
-                </div>
+                <div className="absolute inset-0 bg-sbg-black/0 transition-colors group-hover/thumb:bg-sbg-black/15 pointer-events-none" />
               </div>
             </div>
 
@@ -509,18 +505,14 @@ export default function HeroSection({ product }: HeroSectionProps) {
               onClick={() => setIsDetailView((prev) => !prev)}
               className="relative aspect-[3/2] w-full border border-sbg-border overflow-hidden bg-sbg-offwhite"
             >
-              <Image
-                src={isDetailView ? activeImages.main : activeImages.detail}
-                alt="Atelier crop details"
-                fill
-                className="object-cover"
-                sizes="95vw"
+              <video
+                src="/images/shortdes.mp4"
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="object-cover w-full h-full"
               />
-              <div className="absolute inset-0 bg-sbg-black/10 flex items-center justify-center">
-                <div className="bg-sbg-white text-[8px] tracking-[0.2em] font-bold py-1.5 px-3 border border-sbg-border uppercase shadow">
-                  {isDetailView ? "SHOW FRONT IMAGE" : "SHOW BACK DETAILS"}
-                </div>
-              </div>
             </div>
           </div>
 

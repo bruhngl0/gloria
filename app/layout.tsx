@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cormorant_Garamond, DM_Sans } from "next/font/google";
+import { Cormorant_Garamond, DM_Sans, Pinyon_Script } from "next/font/google";
 import { Suspense } from "react";
 import { CartProvider } from "@/context/CartContext";
 import Header from "@/components/layout/Header";
@@ -20,6 +20,12 @@ const dmSans = DM_Sans({
   weight: ["300", "400", "500", "700"],
 });
 
+const pinyonScript = Pinyon_Script({
+  variable: "--font-pinyon",
+  subsets: ["latin"],
+  weight: ["400"],
+});
+
 export const metadata: Metadata = {
   title: "Styled by Gloria | Body-Type Intentional Fashion",
   description: "Premium, body-type-intentional fashion. Designed around how clothing serves specific shapes.",
@@ -33,7 +39,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cormorant.variable} ${dmSans.variable} h-full antialiased`}
+      className={`${cormorant.variable} ${dmSans.variable} ${pinyonScript.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col font-body bg-sbg-white text-sbg-black">
         <CartProvider>

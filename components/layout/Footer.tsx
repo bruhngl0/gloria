@@ -1,14 +1,15 @@
 "use client";
 
-import React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { motion, AnimatePresence } from "framer-motion";
 
 const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="1.5"
+    strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
     {...props}
@@ -19,181 +20,405 @@ const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
   </svg>
 );
 
-const YoutubeIcon = (props: React.SVGProps<SVGSVGElement>) => (
+const MailIconFilled = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    {...props}
+  >
+    <path d="M3 4c-1.11 0-2 .89-2 2v12c0 1.1.9 2 2 2h18c1.1 0 2-.9 2-2V6c0-1.11-.9-2-2-2H3zm18 4.75L12 14.12 3 8.75V6l9 5.38L21 6v2.75z" />
+  </svg>
+);
+
+const WhatsappIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg
+    viewBox="0 0 24 24"
+    fill="currentColor"
+    {...props}
+  >
+    <path d="M12.012 2c-5.506 0-9.988 4.482-9.988 9.988 0 1.76.459 3.475 1.33 4.996L2.025 22l5.176-1.358c1.477.807 3.137 1.23 4.811 1.23 5.505 0 9.987-4.482 9.987-9.988C22 6.482 17.518 2 12.012 2zm6.046 14.28c-.246.696-1.245 1.286-1.745 1.344-.45.053-1.042.083-1.685-.121-.409-.13-1.61-.532-3.455-1.344-3.155-1.385-5.187-4.577-5.344-4.789-.158-.212-1.28-1.706-1.28-3.256 0-1.55.808-2.31 1.097-2.61.29-.3.633-.377.844-.377.211 0 .422.003.606.012.193.009.45-.072.702.536.257.62.877 2.134.954 2.293.076.158.127.342.023.551-.105.21-.158.342-.317.525-.158.183-.332.408-.475.547-.158.152-.323.318-.14.63.183.313.812 1.342 1.74 2.17 1.196 1.066 2.204 1.396 2.518 1.553.314.158.497.13.682-.083.185-.212.788-.918.998-1.232.211-.314.422-.26.712-.152.29.108 1.84.869 2.157 1.028.317.158.528.236.606.37.079.135.079.782-.167 1.478z" />
+  </svg>
+);
+
+const ChevronIcon = ({ isOpen }: { isOpen: boolean }) => (
   <svg
     viewBox="0 0 24 24"
     fill="none"
     stroke="currentColor"
-    strokeWidth="1.5"
+    strokeWidth="2"
     strokeLinecap="round"
     strokeLinejoin="round"
-    {...props}
+    className={`h-4 w-4 text-white/70 transition-transform duration-300 ${isOpen ? "rotate-180" : ""}`}
   >
-    <path d="M22.54 6.42a2.78 2.78 0 0 0-1.94-2C18.88 4 12 4 12 4s-6.88 0-8.6.46a2.78 2.78 0 0 0-1.94 2A29 29 0 0 0 1 11.75a29 29 0 0 0 .46 5.33A2.78 2.78 0 0 0 3.4 19c1.72.46 8.6.46 8.6.46s6.88 0 8.6-.46a2.78 2.78 0 0 0 1.94-2 29 29 0 0 0 .46-5.25 29 29 0 0 0-.46-5.33z" />
-    <polygon points="9.75 15.02 15.5 11.75 9.75 8.48 9.75 15.02" />
+    <polyline points="6 9 12 15 18 9" />
   </svg>
 );
-
-// Standard SVG for TikTok since Lucide doesn't have it built-in or may differ
-const TikTokIcon = (props: React.SVGProps<SVGSVGElement>) => (
-  <svg
-    viewBox="0 0 24 24"
-    fill="currentColor"
-    stroke="none"
-    {...props}
-  >
-    <path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.17-2.86-.74-3.99-1.72-.08-.07-.17-.17-.26-.26V15c.02 2.06-.58 4.16-1.87 5.77-1.57 2.01-4.11 3.23-6.65 3.23-2.22-.03-4.43-.99-5.91-2.65-1.78-1.95-2.58-4.73-2.11-7.35.48-2.78 2.38-5.32 4.98-6.4 1.25-.53 2.61-.75 3.96-.69V10.7c-1.31-.08-2.67.28-3.66 1.17-.96.84-1.39 2.19-1.12 3.42.23 1.13.97 2.13 1.95 2.7 1.15.68 2.6.76 3.79.16 1.13-.53 1.87-1.7 1.94-2.94.08-2.52.02-15.17.02-15.17Z" />
-  </svg>
-);
-
-const footerStyles = `
-  .sg-footer-grid {
-    position: relative;
-    overflow: hidden;
-  }
-  .sg-footer-grid::before {
-    content: "";
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-    background-size: 60px 60px;
-    background-image: 
-      linear-gradient(to right, rgba(255, 255, 255, 0.04) 1px, transparent 1px),
-      linear-gradient(to bottom, rgba(255, 255, 255, 0.04) 1px, transparent 1px);
-    mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
-    -webkit-mask-image: radial-gradient(circle at center, black 30%, transparent 80%);
-    opacity: 0.85;
-  }
-`;
 
 export default function Footer() {
+  const [openSections, setOpenSections] = useState<{ [key: string]: boolean }>({
+    brand: false,
+    gloria: false,
+    customer: false,
+    popular: false,
+    reachOut: false,
+  });
+
+  const toggleSection = (section: string) => {
+    setOpenSections((prev) => ({
+      ...prev,
+      [section]: !prev[section],
+    }));
+  };
+
   return (
-    <>
-      <style>{footerStyles}</style>
-      <footer className="sg-footer-grid bg-sbg-black text-sbg-white pt-16 pb-8 border-t border-sbg-border">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 relative z-10">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
-            {/* Column 1: Brand & Tagline */}
-            <div className="flex flex-col space-y-4">
-              <span className="font-display text-xl font-bold tracking-[0.25em] uppercase text-sbg-white">
-                Styled by Gloria
-              </span>
-              <p className="text-xs tracking-wider leading-relaxed text-sbg-grey max-w-xs">
-                {/* CLIENT COPY */}
-                Clothing that works for your body, not the other way around. Premium, body-intentional fashion and custom styling services.
-              </p>
-            </div>
+    <footer className="bg-[#2B2B2B] text-white border-t border-white/10 w-full overflow-hidden select-none font-body">
+      {/* 5-Column Grid Layout */}
+      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-white/10 border-b border-white/10 w-full">
 
-            {/* Column 2: Shop links */}
-            <div>
-              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-sbg-white mb-6">
-                Shop
-              </h3>
-              <ul className="space-y-4 text-xs tracking-wider text-sbg-grey">
-                <li>
-                  <Link
-                    href="/shop/one-for-all-dress"
-                    className="hover:text-sbg-white transition-colors"
-                  >
-                    The One for All Dress
-                  </Link>
-                </li>
-                <li className="opacity-50">
-                  <span>Coming Soon</span>
-                </li>
-              </ul>
-            </div>
+        {/* Column 1: Brand & Contact Coordinates */}
+        <div className="col-span-1 md:col-span-3 p-6 md:p-8 flex flex-col justify-between">
+          {/* Mobile Accordion Header */}
+          <button
+            onClick={() => toggleSection("brand")}
+            className="w-full flex items-center justify-between text-left md:hidden"
+            aria-expanded={openSections.brand}
+          >
+            <h2 className="font-display text-xl font-bold tracking-[0.18em] uppercase text-white">
+              STYLED BY GLORIA
+            </h2>
+            <ChevronIcon isOpen={openSections.brand} />
+          </button>
 
-            {/* Column 3: Services links */}
-            <div>
-              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-sbg-white mb-6">
-                Services
-              </h3>
-              <ul className="space-y-4 text-xs tracking-wider text-sbg-grey">
-                <li>
-                  <Link
-                    href="/services"
-                    className="hover:text-sbg-white transition-colors"
-                  >
-                    Book a Consultation
-                  </Link>
-                </li>
-                <li>
-                  <Link
-                    href="/services"
-                    className="hover:text-sbg-white transition-colors"
-                  >
-                    Personal Styling Packages
-                  </Link>
-                </li>
-              </ul>
-            </div>
-
-            {/* Column 4: Legal & Social */}
-            <div>
-              <h3 className="text-xs font-semibold tracking-[0.2em] uppercase text-sbg-white mb-6">
-                Follow & Support
-              </h3>
-              <ul className="space-y-4 text-xs tracking-wider text-sbg-grey mb-6">
-                <li>
-                  <Link href="/privacy" className="hover:text-sbg-white transition-colors">
-                    Privacy Policy
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/returns" className="hover:text-sbg-white transition-colors">
-                    Returns & Exchanges
-                  </Link>
-                </li>
-                <li>
-                  <Link href="/shipping" className="hover:text-sbg-white transition-colors">
-                    Shipping Policy
-                  </Link>
-                </li>
-              </ul>
-
-              {/* Social Icons */}
-              <div className="flex space-x-4">
-                <a
-                  href="https://instagram.com/styledbygloria_g"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sbg-grey hover:text-sbg-white transition-colors"
-                  aria-label="Instagram"
-                >
-                  <InstagramIcon className="h-5 w-5 stroke-[1.5]" />
-                </a>
-                <a
-                  href="https://tiktok.com/@styledbygloria_g"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sbg-grey hover:text-sbg-white transition-colors"
-                  aria-label="TikTok"
-                >
-                  <TikTokIcon className="h-5 w-5" />
-                </a>
-                <a
-                  href="https://youtube.com/@styledbygloria_g"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="text-sbg-grey hover:text-sbg-white transition-colors"
-                  aria-label="YouTube"
-                >
-                  <YoutubeIcon className="h-5 w-5 stroke-[1.5]" />
-                </a>
-              </div>
-            </div>
-          </div>
-
-          {/* Bottom copyright bar */}
-          <div className="border-t border-[#222222] pt-8 text-center">
-            <p className="text-[10px] tracking-widest text-sbg-grey uppercase">
-              &copy; {new Date().getFullYear()} Styled by Gloria. All rights reserved.
+          {/* Desktop Static Header */}
+          <div className="hidden md:block">
+            <h2 className="font-display text-xl md:text-2xl font-bold tracking-[0.2em] uppercase text-white mb-4">
+              STYLED BY GLORIA
+            </h2>
+            <p className="font-body text-[10px] tracking-[0.15em] leading-relaxed uppercase text-white/80">
+              @STYLED BY GLORIA<br />
+              HAUTE ATELIER SECTOR, 4B<br />
+              CREATIVE CLUSTER<br />
+              BANGALORE, INDIA
             </p>
           </div>
+
+          {/* Mobile Collapsible Content */}
+          <AnimatePresence initial={false}>
+            {openSections.brand && (
+              <motion.div
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1, height: "auto", marginTop: "1rem" },
+                  collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden md:hidden space-y-6"
+              >
+                <p className="font-body text-[10px] tracking-[0.15em] leading-relaxed uppercase text-white/80 pt-2">
+                  @STYLED BY GLORIA<br />
+                  HAUTE ATELIER SECTOR, 4B<br />
+                  CREATIVE CLUSTER<br />
+                  BANGALORE, INDIA
+                </p>
+                <div className="space-y-2 pb-2">
+                  <p className="font-body text-[9px] font-bold tracking-[0.2em] uppercase text-white/55">
+                    FOLLOW US
+                  </p>
+                  <div className="flex space-x-4">
+                    <a
+                      href="mailto:studio@styledbygloria.com"
+                      className="text-white hover:opacity-60 transition-opacity"
+                      aria-label="Email Office"
+                    >
+                      <MailIconFilled className="h-5 w-5" />
+                    </a>
+                    <a
+                      href="https://instagram.com/styledbygloria_g"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="text-white hover:opacity-60 transition-opacity"
+                      aria-label="Instagram Profile"
+                    >
+                      <InstagramIcon className="h-5 w-5" />
+                    </a>
+                  </div>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Desktop Static Footer actions */}
+          <div className="hidden md:block mt-4 space-y-2">
+            <p className="font-body text-[10px] font-bold tracking-[0.2em] uppercase text-white/50">
+              FOLLOW US
+            </p>
+            <div className="flex space-x-4">
+              <a
+                href="mailto:studio@styledbygloria.com"
+                className="text-white hover:opacity-60 transition-opacity"
+                aria-label="Email Office"
+              >
+                <MailIconFilled className="h-5 w-5" />
+              </a>
+              <a
+                href="https://instagram.com/styledbygloria_g"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white hover:opacity-60 transition-opacity"
+                aria-label="Instagram Profile"
+              >
+                <InstagramIcon className="h-5 w-5" />
+              </a>
+            </div>
+          </div>
         </div>
-      </footer>
-    </>
+
+        {/* Column 2: 01/ Gloria links */}
+        <div className="col-span-1 md:col-span-2 p-6 md:p-8 flex flex-col md:space-y-4">
+          {/* Mobile Accordion Header */}
+          <button
+            onClick={() => toggleSection("gloria")}
+            className="w-full flex items-center justify-between text-left md:hidden"
+            aria-expanded={openSections.gloria}
+          >
+            <span className="font-body text-[10px] tracking-[0.18em] font-bold text-white/50">
+              01/ Gloria
+            </span>
+            <ChevronIcon isOpen={openSections.gloria} />
+          </button>
+
+          {/* Desktop Static Header */}
+          <span className="hidden md:inline font-body text-[10px] tracking-[0.18em] font-bold text-white/50">
+            01/ Gloria
+          </span>
+
+          {/* Mobile Collapsible Links */}
+          <AnimatePresence initial={false}>
+            {openSections.gloria && (
+              <motion.div
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1, height: "auto", marginTop: "1rem" },
+                  collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden md:hidden"
+              >
+                <ul className="font-body space-y-3 text-[11px] font-normal tracking-[0.12em] text-white pb-2 pt-2">
+                  <li><Link href="/" className="hover:underline underline-offset-4">Styled by Gloria</Link></li>
+                  <li><Link href="/contact" className="hover:underline underline-offset-4">Contact</Link></li>
+                  <li><Link href="/services" className="hover:underline underline-offset-4">Services</Link></li>
+                  <li><Link href="/about" className="hover:underline underline-offset-4">The Brand</Link></li>
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Desktop Static Links */}
+          <ul className="hidden md:block space-y-3 text-[11px] font-normal tracking-[0.12em] text-white">
+            <li><Link href="/" className="hover:underline underline-offset-4">Styled by Gloria</Link></li>
+            <li><Link href="/contact" className="hover:underline underline-offset-4">Contact</Link></li>
+            <li><Link href="/services" className="hover:underline underline-offset-4">Services</Link></li>
+            <li><Link href="/about" className="hover:underline underline-offset-4">The Brand</Link></li>
+          </ul>
+        </div>
+
+        {/* Column 3: 02/ Customer Service links */}
+        <div className="col-span-1 md:col-span-2 p-6 md:p-8 flex flex-col md:space-y-4">
+          {/* Mobile Accordion Header */}
+          <button
+            onClick={() => toggleSection("customer")}
+            className="w-full flex items-center justify-between text-left md:hidden"
+            aria-expanded={openSections.customer}
+          >
+            <span className="font-body text-[10px] tracking-[0.18em] font-bold text-white/50">
+              02/ Customer Service
+            </span>
+            <ChevronIcon isOpen={openSections.customer} />
+          </button>
+
+          {/* Desktop Static Header */}
+          <span className="hidden md:inline font-body text-[10px] tracking-[0.18em] font-bold text-white/50">
+            02/ Customer Service
+          </span>
+
+          {/* Mobile Collapsible Content */}
+          <AnimatePresence initial={false}>
+            {openSections.customer && (
+              <motion.div
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1, height: "auto", marginTop: "1rem" },
+                  collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden md:hidden"
+              >
+                <ul className="font-body space-y-3 text-[11px] font-normal tracking-[0.12em] text-white pb-2 pt-2">
+                  <li><Link href="/services" className="hover:underline underline-offset-4">Bespoke</Link></li>
+                  <li><Link href="/shipping" className="hover:underline underline-offset-4">Shipping Policy</Link></li>
+                  <li><Link href="/returns" className="hover:underline underline-offset-4">Return & Exchange</Link></li>
+                  <li><Link href="/privacy" className="hover:underline underline-offset-4">Privacy Policy</Link></li>
+                  <li><Link href="/about" className="hover:underline underline-offset-4">Care Instructions</Link></li>
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Desktop Static Links */}
+          <ul className="hidden md:block space-y-3 text-[11px] font-normal tracking-[0.12em] text-white">
+            <li><Link href="/services" className="hover:underline underline-offset-4">Bespoke</Link></li>
+            <li><Link href="/shipping" className="hover:underline underline-offset-4">Shipping Policy</Link></li>
+            <li><Link href="/returns" className="hover:underline underline-offset-4">Return & Exchange</Link></li>
+            <li><Link href="/privacy" className="hover:underline underline-offset-4">Privacy Policy</Link></li>
+            <li><Link href="/about" className="hover:underline underline-offset-4">Care Instructions</Link></li>
+          </ul>
+        </div>
+
+        {/* Column 4: 03/ Popular Now links */}
+        <div className="col-span-1 md:col-span-2 p-6 md:p-8 flex flex-col md:space-y-4">
+          {/* Mobile Accordion Header */}
+          <button
+            onClick={() => toggleSection("popular")}
+            className="w-full flex items-center justify-between text-left md:hidden"
+            aria-expanded={openSections.popular}
+          >
+            <span className="font-body text-[10px] tracking-[0.18em] font-bold text-white/50">
+              03/ Popular Now
+            </span>
+            <ChevronIcon isOpen={openSections.popular} />
+          </button>
+
+          {/* Desktop Static Header */}
+          <span className="hidden md:inline font-body text-[10px] tracking-[0.18em] font-bold text-white/50">
+            03/ Popular Now
+          </span>
+
+          {/* Mobile Collapsible Content */}
+          <AnimatePresence initial={false}>
+            {openSections.popular && (
+              <motion.div
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1, height: "auto", marginTop: "1rem" },
+                  collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden md:hidden"
+              >
+                <ul className="font-body space-y-3 text-[11px] font-normal tracking-[0.12em] text-white pb-2 pt-2">
+                  <li><Link href="/shop/one-for-all-dress" className="hover:underline underline-offset-4">The Cowl Dress</Link></li>
+                  <li><Link href="/shop/one-for-all-dress" className="hover:underline underline-offset-4">Onyx Black Dress</Link></li>
+                  <li><Link href="/shop/one-for-all-dress" className="hover:underline underline-offset-4">Crimson Red Dress</Link></li>
+                  <li><Link href="/shop/one-for-all-dress" className="hover:underline underline-offset-4">French Blue Dress</Link></li>
+                </ul>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Desktop Static Links */}
+          <ul className="hidden md:block space-y-3 text-[11px] font-normal tracking-[0.12em] text-white">
+            <li><Link href="/shop/one-for-all-dress" className="hover:underline underline-offset-4">The Cowl Dress</Link></li>
+            <li><Link href="/shop/one-for-all-dress" className="hover:underline underline-offset-4">Onyx Black Dress</Link></li>
+            <li><Link href="/shop/one-for-all-dress" className="hover:underline underline-offset-4">Crimson Red Dress</Link></li>
+            <li><Link href="/shop/one-for-all-dress" className="hover:underline underline-offset-4">French Blue Dress</Link></li>
+          </ul>
+        </div>
+
+        {/* Column 5: Newsletter Promotion & Reach Out Actions */}
+        <div className="col-span-1 md:col-span-3 p-6 md:p-8 flex flex-col justify-between">
+          {/* Mobile Accordion Header */}
+          <button
+            onClick={() => toggleSection("reachOut")}
+            className="w-full flex items-center justify-between text-left md:hidden"
+            aria-expanded={openSections.reachOut}
+          >
+            <h3 className="font-display text-lg font-bold tracking-[0.15em] uppercase text-white leading-tight">
+              REACH OUT SAVE 10% ON EVERYTHING NEW
+            </h3>
+            <ChevronIcon isOpen={openSections.reachOut} />
+          </button>
+
+          {/* Desktop Static Header */}
+          <div className="hidden md:block">
+            <h3 className="font-display text-base md:text-lg font-bold tracking-[0.15em] uppercase text-white leading-tight">
+              REACH OUT SAVE 10% ON EVERYTHING NEW
+            </h3>
+          </div>
+
+          {/* Mobile Collapsible Content */}
+          <AnimatePresence initial={false}>
+            {openSections.reachOut && (
+              <motion.div
+                initial="collapsed"
+                animate="open"
+                exit="collapsed"
+                variants={{
+                  open: { opacity: 1, height: "auto", marginTop: "1rem" },
+                  collapsed: { opacity: 0, height: 0, marginTop: 0 }
+                }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="overflow-hidden md:hidden pt-2"
+              >
+                <div className="flex space-x-5 pb-2">
+                  <a
+                    href="mailto:newsletter@styledbygloria.com"
+                    className="text-white hover:opacity-60 transition-opacity"
+                    aria-label="Email Newsletter"
+                  >
+                    <MailIconFilled className="h-8 w-8" />
+                  </a>
+                  <a
+                    href="https://wa.me/910000000000"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="text-white hover:opacity-60 transition-opacity"
+                    aria-label="Chat on WhatsApp"
+                  >
+                    <WhatsappIcon className="h-8 w-8" />
+                  </a>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {/* Desktop Static Footer Actions */}
+          <div className="hidden md:flex mt-4 space-x-5">
+            <a
+              href="mailto:newsletter@styledbygloria.com"
+              className="text-white hover:opacity-60 transition-opacity"
+              aria-label="Email Newsletter"
+            >
+              <MailIconFilled className="h-7 w-7" />
+            </a>
+            <a
+              href="https://wa.me/910000000000"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-white hover:opacity-60 transition-opacity"
+              aria-label="Chat on WhatsApp"
+            >
+              <WhatsappIcon className="h-7 w-7" />
+            </a>
+          </div>
+        </div>
+
+      </div>
+
+      {/* Bottom Copyright Bar */}
+      <div className="py-4 text-center">
+        <p className="font-body text-[9px] tracking-widest text-white/50 uppercase">
+          &copy; {new Date().getFullYear()} STYLED BY GLORIA. ALL RIGHTS RESERVED.
+        </p>
+      </div>
+    </footer>
   );
 }

@@ -3,6 +3,7 @@ import { Metadata } from "next";
 import { shopifyFetch, MOCK_COLLECTION } from "@/lib/shopify";
 import { GET_COLLECTION_QUERY } from "@/lib/queries";
 import ShopClient from "@/components/product/ShopClient";
+import FitGuideSection from "@/components/shop/FitGuideSection";
 import { Product } from "@/types/shopify";
 
 export const metadata: Metadata = {
@@ -41,6 +42,7 @@ export default async function ShopPage() {
   return (
     <div className="bg-sbg-white min-h-screen">
       <ShopClient initialProducts={products} />
+      <FitGuideSection />
     </div>
   );
 }
