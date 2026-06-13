@@ -95,7 +95,7 @@ export default function ContactForm() {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-12 md:py-24">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 md:pt-36 pb-12 md:pb-24">
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-20 items-start">
         {/* Left Column: Direct Info */}
         <ScrollReveal staggerChildren={0.12} delay={0.1} className="lg:col-span-5 space-y-8">

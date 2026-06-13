@@ -12,6 +12,7 @@ export default function Header() {
   const { cartCount, openCart } = useCart();
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [visible, setVisible] = useState(true);
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     let lastScrollY = window.scrollY;
@@ -19,6 +20,8 @@ export default function Header() {
     const handleScroll = () => {
       const currentScrollY = window.scrollY;
       
+      setIsScrolled(currentScrollY > 40);
+
       if (currentScrollY < 50) {
         setVisible(true);
       } else {
@@ -44,9 +47,17 @@ export default function Header() {
     return pathname.startsWith(href);
   };
 
+  const isOverlayPage = pathname === "/" || pathname === "/about";
+  const useTransparentBg = isOverlayPage && !isScrolled;
+  const useWhiteText = pathname === "/about" && !isScrolled;
+
   return (
     <>
-      <header className={`sticky top-0 z-40 w-full border-b border-sbg-border bg-sbg-white/90 backdrop-blur-md transition-transform duration-300 ease-in-out ${
+      <header className={`fixed top-0 left-0 w-full z-40 transition-all duration-300 ease-in-out ${
+        useTransparentBg 
+          ? "bg-transparent border-b border-transparent" 
+          : "bg-sbg-white/95 border-b border-sbg-border/60 backdrop-blur-md shadow-sm"
+      } ${
         visible ? "translate-y-0" : "-translate-y-full"
       }`}>
         {/* Desktop Grid Layout */}
@@ -55,13 +66,15 @@ export default function Header() {
           <div className="col-span-3 flex items-center h-full pl-[60px] lg:pl-[65px]">
             <Link
               href="/"
-              className="font-display text-lg md:text-xl font-bold tracking-[0.2em] text-sbg-black hover:opacity-85 transition-opacity uppercase"
+              className={`font-display text-lg md:text-xl font-bold tracking-[0.2em] transition-colors uppercase ${
+                useWhiteText ? "text-white hover:opacity-85" : "text-sbg-black hover:opacity-85"
+              }`}
             >
               Styled by Gloria
             </Link>
           </div>
 
-          {/* Desktop Nav Links (Center partition centering over visual lookbook) */}
+          {/* Desktop Nav Links */}
           <div className="col-span-6 flex items-center justify-center h-full">
             <nav className="flex space-x-8">
               {navLinks.map((link) => {
@@ -70,7 +83,11 @@ export default function Header() {
                   <Link
                     key={link.href}
                     href={link.href}
-                    className={`text-sm tracking-wider uppercase transition-colors text-sbg-black hover:opacity-70 nav-link-fancy pb-1 ${
+                    className={`text-sm tracking-wider uppercase transition-colors nav-link-fancy pb-1 ${
+                      useWhiteText
+                        ? "text-white hover:text-white/80"
+                        : "text-sbg-black hover:text-sbg-grey"
+                    } ${
                       active ? "font-semibold active" : "font-normal"
                     }`}
                   >
@@ -81,12 +98,14 @@ export default function Header() {
             </nav>
           </div>
 
-          {/* Icons & Actions (Right partition matching right purchasing drawer) */}
+          {/* Icons & Actions */}
           <div className="col-span-3 flex items-center justify-end h-full pr-6 lg:pr-8 space-x-4">
             {/* Cart Button */}
             <button
               onClick={openCart}
-              className="relative p-2 text-sbg-black hover:text-sbg-grey transition-colors"
+              className={`relative p-2 transition-colors ${
+                useWhiteText ? "text-white hover:text-white/80" : "text-sbg-black hover:text-sbg-grey"
+              }`}
               aria-label="Open cart"
               id="header-cart-btn"
             >
@@ -104,7 +123,9 @@ export default function Header() {
         <div className="flex md:hidden h-14 w-full items-center justify-between px-4">
           <Link
             href="/"
-            className="font-display text-lg font-bold tracking-[0.2em] text-sbg-black hover:opacity-85 transition-opacity uppercase"
+            className={`font-display text-lg font-bold tracking-[0.2em] transition-colors uppercase ${
+              useWhiteText ? "text-white hover:opacity-85" : "text-sbg-black hover:opacity-85"
+            }`}
           >
             Styled by Gloria
           </Link>
@@ -112,7 +133,9 @@ export default function Header() {
           <div className="flex items-center space-x-4">
             <button
               onClick={openCart}
-              className="relative p-2 text-sbg-black hover:text-sbg-grey transition-colors"
+              className={`relative p-2 transition-colors ${
+                useWhiteText ? "text-white hover:text-white/80" : "text-sbg-black hover:text-sbg-grey"
+              }`}
               aria-label="Open cart"
               id="header-cart-btn-mobile"
             >
@@ -126,7 +149,9 @@ export default function Header() {
 
             <button
               onClick={() => setMobileMenuOpen(true)}
-              className="p-2 text-sbg-black hover:text-sbg-grey transition-colors"
+              className={`p-2 transition-colors ${
+                useWhiteText ? "text-white hover:text-white/80" : "text-sbg-black hover:text-sbg-grey"
+              }`}
               aria-label="Open menu"
             >
               <Menu className="h-5 w-5 stroke-[1.5]" />

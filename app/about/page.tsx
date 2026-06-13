@@ -25,6 +25,8 @@ export default function AboutPage() {
           sizes="100vw"
           className="object-cover opacity-85 select-none"
         />
+        {/* Top Dark Vignette overlay for Header legibility */}
+        <div className="absolute top-0 left-0 w-full h-32 bg-gradient-to-b from-black/45 via-black/10 to-transparent z-20 pointer-events-none" />
         <div className="absolute inset-0 bg-sbg-black/10 z-10" />
       </div>
 

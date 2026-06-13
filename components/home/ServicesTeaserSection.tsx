@@ -34,8 +34,8 @@ export default function ServicesTeaserSection() {
         {/* 2. Split Columns Layout */}
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-start">
 
-          {/* Left Column: Vintage Atelier Monitor console & Button */}
-          <div className="lg:col-span-5 flex flex-col items-center lg:items-start justify-center space-y-8">
+          {/* Left Column: Vintage Atelier Monitor console */}
+          <div className="lg:col-span-5 flex flex-col items-center lg:items-start justify-center">
             <ScrollReveal delay={0.2} className="w-full">
               <div className="relative w-full aspect-[4/3] max-w-md mx-auto lg:mx-0 bg-[#1A1A1A] border-[6px] md:border-8 border-sbg-black rounded-xl shadow-[8px_8px_0px_rgba(10,10,10,1)] overflow-hidden flex flex-col justify-between p-2.5 md:p-3 select-none">
                 {/* Screen inner container */}
@@ -77,16 +77,6 @@ export default function ServicesTeaserSection() {
                   </div>
                 </div>
               </div>
-            </ScrollReveal>
-
-            {/* CTA Booking Link (moved here) */}
-            <ScrollReveal delay={0.25} className="w-full text-center lg:text-left">
-              <Link
-                href="/services"
-                className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#2B2B2B] text-[10px] font-bold uppercase tracking-widest bg-[#2B2B2B] text-[#F2F2F2] hover:bg-transparent hover:text-[#2B2B2B] transition-all duration-300 w-full max-w-md shadow-[4px_4px_0px_rgba(10,10,10,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1"
-              >
-                Book a Consultation
-              </Link>
             </ScrollReveal>
           </div>
 
@@ -134,44 +124,34 @@ export default function ServicesTeaserSection() {
                 </div>
               </li>
             </ul>
-
-            {/* CTA WhatsApp Link (opposite to the booking button) */}
-            <div className="pt-4 border-t border-sbg-black/15">
-              <ScrollReveal delay={0.35} className="w-full text-center lg:text-left">
-                <a
-                  href="https://wa.me/910000000000?text=Hello!%20I%20would%20like%20to%20inquire%20about%20bulk%20orders%20with%20Styled%20by%20Gloria."
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center px-8 py-4 border-2 text-[10px] font-bold uppercase tracking-widest transition-all duration-300 w-full max-w-md group"
-                  style={{
-                    backgroundColor: '#2B2B2B',
-                    borderColor: '#2B2B2B',
-                    color: '#F2F2F2',
-                    boxShadow: '4px 4px 0px rgba(10,10,10,1)',
-                  }}
-                  onMouseEnter={e => {
-                    e.currentTarget.style.backgroundColor = 'transparent';
-                    e.currentTarget.style.color = '#2B2B2B';
-                    e.currentTarget.style.boxShadow = 'none';
-                    e.currentTarget.style.transform = 'translate(4px, 4px)';
-                  }}
-                  onMouseLeave={e => {
-                    e.currentTarget.style.backgroundColor = '#2B2B2B';
-                    e.currentTarget.style.color = '#F2F2F2';
-                    e.currentTarget.style.boxShadow = '4px 4px 0px rgba(10,10,10,1)';
-                    e.currentTarget.style.transform = 'none';
-                  }}
-                >
-                  WhatsApp for Bulk Orders
-                </a>
-              </ScrollReveal>
-            </div>
           </ScrollReveal>
 
+        </div>
+
+        {/* 3. CTA Buttons in One Row */}
+        <div className="mt-16 pt-10 border-t border-sbg-black/15 flex flex-col md:flex-row w-full items-center justify-center gap-6">
+          <ScrollReveal delay={0.35} className="w-full md:w-auto">
+            <Link
+              href="/services"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#2B2B2B] text-[10px] font-bold uppercase tracking-widest bg-[#2B2B2B] text-[#F2F2F2] hover:bg-transparent hover:text-[#2B2B2B] transition-all duration-300 w-full md:w-72 shadow-[4px_4px_0px_rgba(10,10,10,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1"
+            >
+              Book a Consultation
+            </Link>
+          </ScrollReveal>
+
+          <ScrollReveal delay={0.4} className="w-full md:w-auto">
+            <a
+              href="https://wa.me/910000000000?text=Hello!%20I%20would%20like%20to%20inquire%20about%20bulk%20orders%20with%20Styled%20by%20Gloria."
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center justify-center px-8 py-4 border-2 border-[#2B2B2B] text-[10px] font-bold uppercase tracking-widest bg-[#2B2B2B] text-[#F2F2F2] hover:bg-transparent hover:text-[#2B2B2B] transition-all duration-300 w-full md:w-72 shadow-[4px_4px_0px_rgba(10,10,10,1)] hover:shadow-none hover:translate-x-1 hover:translate-y-1"
+            >
+              WhatsApp for Bulk Orders
+            </a>
+          </ScrollReveal>
         </div>
 
       </div>
     </section>
   );
 }
-

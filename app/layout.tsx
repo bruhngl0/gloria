@@ -6,6 +6,7 @@ import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
 import CartDrawer from "@/components/cart/CartDrawer";
 import SplashScreen from "@/components/layout/SplashScreen";
+import NoiseOverlay from "@/components/ui/NoiseOverlay";
 import "./globals.css";
 
 const cormorant = Cormorant_Garamond({
@@ -47,6 +48,7 @@ export default function RootLayout({
           <main className="flex-1 flex flex-col">{children}</main>
           <Footer />
           <CartDrawer />
+          <NoiseOverlay opacity={0.03} />
           <Suspense fallback={null}>
             <SplashScreen />
           </Suspense>

@@ -77,7 +77,7 @@ export default function ShopClient({ initialProducts }: ShopClientProps) {
   };
 
   return (
-    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-8 md:py-16">
+    <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-28 md:pt-36 pb-8 md:pb-16">
       {/* Page Header */}
       <ScrollReveal staggerChildren={0.1} className="text-center mb-10">
         <h1 className="font-display text-3xl md:text-5xl font-bold tracking-[0.2em] text-sbg-black uppercase">

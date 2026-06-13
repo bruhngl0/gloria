@@ -8,7 +8,7 @@ export default function DifferenceSection() {
   return (
     <section className="bg-sbg-white w-full py-20 md:py-28 border-b border-sbg-border overflow-hidden select-none">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        
+
         {/* Top Section Tag */}
         <div className="text-center mb-10 md:mb-12">
           <span className="text-[9px] tracking-[0.25em] font-bold text-sbg-grey uppercase">
@@ -19,7 +19,7 @@ export default function DifferenceSection() {
         {/* 1. LAYERED EDITORIAL ARTWORK BLOCK */}
         <div className="relative flex flex-col justify-center items-center w-full min-h-[300px] md:min-h-[440px] mb-16 select-none">
           {/* Layer 1: Back Text (Symmetric) */}
-          <h3 className="font-cursive text-[6.5rem] md:text-[9.5rem] text-sbg-black leading-none absolute z-0 select-none -translate-y-28 md:-translate-y-44 font-normal">
+          <h3 className="font-cursive text-[89px] md:text-[9.5rem] text-sbg-black leading-none absolute z-0 select-none -translate-y-36 md:-translate-y-44 font-normal">
             Symmetric
           </h3>
 
@@ -36,7 +36,7 @@ export default function DifferenceSection() {
           </div>
 
           {/* Layer 3: Front Text (SHAPE) */}
-          <h3 className="font-sans font-light text-[4.8rem] md:text-[7.8rem] tracking-[0.05em] text-sbg-black leading-none absolute z-20 select-none translate-y-8 md:translate-y-12 uppercase">
+          <h3 className="font-sans font-light text-[62px] md:text-[7.8rem] tracking-[0.05em] text-sbg-black leading-none absolute z-20 select-none translate-y-8 md:translate-y-12 uppercase">
             SHAPE
           </h3>
         </div>

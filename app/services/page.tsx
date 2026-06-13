@@ -62,7 +62,7 @@ export default function ServicesPage() {
   ];
 
   return (
-    <div className="bg-sbg-white min-h-screen py-12 md:py-20">
+    <div className="bg-sbg-white min-h-screen pt-28 md:pt-36 pb-12 md:pb-20">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         {/* Section 1: Page Header */}
         <ScrollReveal staggerChildren={0.12} className="text-center max-w-2xl mx-auto mb-16">

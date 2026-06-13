@@ -97,7 +97,7 @@ body {
   height: 1.25px;
   bottom: -4px;
   left: 0;
-  background-color: var(--color-sbg-black);
+  background-color: currentColor;
   transform-origin: bottom right;
   transition: transform 0.4s cubic-bezier(0.215, 0.61, 0.355, 1);
 }

@@ -1,4 +1,5 @@
 import React from "react";
+import CoverHeroSection from "@/components/home/CoverHeroSection";
 import HeroSection from "@/components/home/HeroSection";
 import MissionSection from "@/components/home/MissionSection";
 import FabricSection from "@/components/home/FabricSection";
@@ -28,10 +29,15 @@ export default async function Home() {
 
   return (
     <div className="bg-sbg-white min-h-screen">
-      {/* 1. Hero Cover */}
-      <HeroSection product={featuredProduct} />
+      {/* 1. Cover Hero Spread */}
+      <CoverHeroSection />
 
-      {/* 2. Typographic Brand Mission */}
+      {/* 2. Product Purchase Section (Moved Down) */}
+      <div id="dress-showcase">
+        <HeroSection product={featuredProduct} />
+      </div>
+
+      {/* 3. Typographic Brand Mission */}
       <MissionSection />
 
       {/* 3. Textile Craftsmanship */}
