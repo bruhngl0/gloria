@@ -108,6 +108,61 @@ export const GET_COLLECTION_QUERY = `
   }
 `;
 
+export const GET_PRODUCTS_QUERY = `
+  query GetProducts($first: Int!) {
+    products(first: $first) {
+      edges {
+        node {
+          id
+          handle
+          title
+          priceRange {
+            minVariantPrice {
+              amount
+              currencyCode
+            }
+          }
+          images(first: 2) {
+            edges {
+              node {
+                url
+                altText
+                width
+                height
+              }
+            }
+          }
+          tags
+          metafield(namespace: "sbg", key: "body_types") {
+            value
+          }
+          variants(first: 10) {
+            edges {
+              node {
+                id
+                title
+                availableForSale
+                price {
+                  amount
+                  currencyCode
+                }
+                selectedOptions {
+                  name
+                  value
+                }
+                image {
+                  url
+                  altText
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+`;
+
 export const GET_CART_QUERY = `
   query GetCart($cartId: ID!) {
     cart(id: $cartId) {

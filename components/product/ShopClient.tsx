@@ -18,8 +18,28 @@ export default function ShopClient({ initialProducts }: ShopClientProps) {
 
   // Filter Categories Options
   const bodyTypesList = ["All Body Types", "Hourglass", "Pear", "Rectangle", "Inverted Triangle", "Apple"];
-  const sizesList = ["XS", "S", "M", "L", "XL"];
-  const colorsList = ["Black", "Red", "Baby Blue"];
+  
+  const sizesList = useMemo(() => {
+    const sizes = new Set<string>();
+    initialProducts.forEach((product) => {
+      const sizeOpt = product.options?.find((o) => o.name === "Size");
+      if (sizeOpt) {
+        sizeOpt.values.forEach((v) => sizes.add(v));
+      }
+    });
+    return sizes.size > 0 ? Array.from(sizes) : ["XS", "S", "M", "L", "XL"];
+  }, [initialProducts]);
+
+  const colorsList = useMemo(() => {
+    const colors = new Set<string>();
+    initialProducts.forEach((product) => {
+      const colorOpt = product.options?.find((o) => o.name === "Color");
+      if (colorOpt) {
+        colorOpt.values.forEach((v) => colors.add(v));
+      }
+    });
+    return colors.size > 0 ? Array.from(colors) : ["Black", "Red", "Baby Blue"];
+  }, [initialProducts]);
 
   // Client Side Filtering Logic
   const filteredProducts = useMemo(() => {

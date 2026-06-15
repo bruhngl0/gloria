@@ -1,7 +1,7 @@
 import React from "react";
 import { Metadata } from "next";
 import { shopifyFetch, MOCK_COLLECTION } from "@/lib/shopify";
-import { GET_COLLECTION_QUERY } from "@/lib/queries";
+import { GET_COLLECTION_QUERY, GET_PRODUCTS_QUERY } from "@/lib/queries";
 import ShopClient from "@/components/product/ShopClient";
 import FitGuideSection from "@/components/shop/FitGuideSection";
 import { Product } from "@/types/shopify";
@@ -27,8 +27,23 @@ export default async function ShopPage() {
       handle: "frontpage", // or default handle
     });
 
-    if (data?.collection?.products?.edges) {
+    if (data?.collection?.products?.edges && data.collection.products.edges.length > 0) {
       products = data.collection.products.edges.map((e) => e.node);
+    } else {
+      // Fallback: Fetch all products directly if the collection doesn't exist or is empty
+      const allProductsData = await shopifyFetch<{
+        products: {
+          edges: {
+            node: Product;
+          }[];
+        };
+      }>(GET_PRODUCTS_QUERY, {
+        first: 20,
+      });
+
+      if (allProductsData?.products?.edges) {
+        products = allProductsData.products.edges.map((e) => e.node);
+      }
     }
   } catch (err) {
     console.error("Error fetching shop page collections:", err);

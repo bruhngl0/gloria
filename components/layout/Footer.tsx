@@ -71,9 +71,9 @@ export default function Footer() {
   };
 
   return (
-    <footer className="bg-gradient-to-b from-[#F2F2F2] to-[#2B2B2B] border-t border-sbg-black/10 w-full overflow-hidden select-none font-body">
+    <footer className="bg-sbg-black border-t border-white/10 w-full overflow-hidden select-none font-body">
       {/* 5-Column Grid Layout */}
-      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-sbg-black/10 border-b border-sbg-black/10 w-full">
+      <div className="grid grid-cols-1 md:grid-cols-12 divide-y md:divide-y-0 md:divide-x divide-white/10 border-b border-white/10 w-full">
 
         {/* Column 1: Brand & Contact Coordinates */}
         <div className="col-span-1 md:col-span-3 p-6 md:p-8 flex flex-col space-y-6">
@@ -83,18 +83,18 @@ export default function Footer() {
             className="w-full flex items-center justify-between text-left md:hidden"
             aria-expanded={openSections.brand}
           >
-            <h2 className="font-display text-xl font-bold tracking-[0.18em] uppercase text-sbg-black">
+            <h2 className="font-display text-xl font-bold tracking-[0.18em] uppercase text-sbg-white">
               STYLED BY GLORIA
             </h2>
-            <ChevronIcon isOpen={openSections.brand} className="text-sbg-black/70" />
+            <ChevronIcon isOpen={openSections.brand} className="text-sbg-white/70" />
           </button>
 
           {/* Desktop Static Header */}
           <div className="hidden md:block">
-            <h2 className="font-display text-xl md:text-2xl font-bold tracking-[0.2em] uppercase text-sbg-black mb-4">
+            <h2 className="font-display text-xl md:text-2xl font-bold tracking-[0.2em] uppercase text-sbg-white mb-4">
               STYLED BY GLORIA
             </h2>
-            <p className="font-body text-[10px] tracking-[0.15em] leading-relaxed uppercase text-sbg-black/85">
+            <p className="font-body text-[10px] tracking-[0.15em] leading-relaxed uppercase text-sbg-white/80">
               @STYLED BY GLORIA<br />
               HAUTE ATELIER SECTOR, 4B<br />
               CREATIVE CLUSTER<br />
@@ -116,20 +116,20 @@ export default function Footer() {
                 transition={{ duration: 0.3, ease: "easeInOut" }}
                 className="overflow-hidden md:hidden space-y-6"
               >
-                <p className="font-body text-[10px] tracking-[0.15em] leading-relaxed uppercase text-sbg-black/85 pt-2">
+                <p className="font-body text-[10px] tracking-[0.15em] leading-relaxed uppercase text-sbg-white/80 pt-2">
                   @STYLED BY GLORIA<br />
                   HAUTE ATELIER SECTOR, 4B<br />
                   CREATIVE CLUSTER<br />
                   BANGALORE, INDIA
                 </p>
                 <div className="space-y-2 pb-2">
-                  <p className="font-body text-[9px] font-bold tracking-[0.2em] uppercase text-sbg-black/55">
+                  <p className="font-body text-[9px] font-bold tracking-[0.2em] uppercase text-sbg-white/50">
                     FOLLOW US
                   </p>
                   <div className="flex space-x-4">
                     <a
                       href="mailto:studio@styledbygloria.com"
-                      className="text-sbg-black hover:opacity-60 transition-opacity"
+                      className="text-sbg-white hover:opacity-80 transition-opacity"
                       aria-label="Email Office"
                     >
                       <MailIconFilled className="h-5 w-5" />
@@ -138,7 +138,7 @@ export default function Footer() {
                       href="https://instagram.com/styledbygloria_g"
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-sbg-black hover:opacity-60 transition-opacity"
+                      className="text-sbg-white hover:opacity-80 transition-opacity"
                       aria-label="Instagram Profile"
                     >
                       <InstagramIcon className="h-5 w-5" />
@@ -151,13 +151,13 @@ export default function Footer() {
 
           {/* Desktop Static Footer actions */}
           <div className="hidden md:block mt-4 space-y-2">
-            <p className="font-body text-[10px] font-bold tracking-[0.2em] uppercase text-sbg-black/60">
+            <p className="font-body text-[10px] font-bold tracking-[0.2em] uppercase text-sbg-white/50">
               FOLLOW US
             </p>
             <div className="flex space-x-4">
               <a
                 href="mailto:studio@styledbygloria.com"
-                className="text-sbg-black hover:opacity-60 transition-opacity"
+                className="text-sbg-white hover:opacity-80 transition-opacity"
                 aria-label="Email Office"
               >
                 <MailIconFilled className="h-5 w-5" />
@@ -166,7 +166,7 @@ export default function Footer() {
                 href="https://instagram.com/styledbygloria_g"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-sbg-black hover:opacity-60 transition-opacity"
+                className="text-sbg-white hover:opacity-80 transition-opacity"
                 aria-label="Instagram Profile"
               >
                 <InstagramIcon className="h-5 w-5" />
@@ -183,14 +183,14 @@ export default function Footer() {
             className="w-full flex items-center justify-between text-left md:hidden"
             aria-expanded={openSections.gloria}
           >
-            <span className="font-body text-[10px] tracking-[0.18em] font-bold text-sbg-black/70">
+            <span className="font-body text-[10px] tracking-[0.18em] font-bold text-sbg-white/80">
               01/ Gloria
             </span>
-            <ChevronIcon isOpen={openSections.gloria} className="text-sbg-black/70" />
+            <ChevronIcon isOpen={openSections.gloria} className="text-sbg-white/70" />
           </button>
 
           {/* Desktop Static Header */}
-          <span className="hidden md:inline font-body text-[10px] tracking-[0.18em] font-bold text-sbg-black/70">
+          <span className="hidden md:inline font-body text-[10px] tracking-[0.18em] font-bold text-sbg-white/80">
             01/ Gloria
           </span>
 
@@ -209,10 +209,10 @@ export default function Footer() {
                 className="overflow-hidden md:hidden"
               >
                 <ul className="font-body space-y-3 text-[11px] font-normal tracking-[0.12em] pb-2 pt-2">
-                  <li><Link href="/" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">Styled by Gloria</Link></li>
-                  <li><Link href="/contact" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">Contact</Link></li>
-                  <li><Link href="/services" className="text-sbg-black/80 hover:text-black hover:underline underline-offset-4">Services</Link></li>
-                  <li><Link href="/about" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">The Brand</Link></li>
+                  <li><Link href="/" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Styled by Gloria</Link></li>
+                  <li><Link href="/contact" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Contact</Link></li>
+                  <li><Link href="/services" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Services</Link></li>
+                  <li><Link href="/about" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">The Brand</Link></li>
                 </ul>
               </motion.div>
             )}
@@ -220,10 +220,10 @@ export default function Footer() {
 
           {/* Desktop Static Links */}
           <ul className="hidden md:block space-y-3 text-[11px] font-normal tracking-[0.12em]">
-            <li><Link href="/" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">Styled by Gloria</Link></li>
-            <li><Link href="/contact" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">Contact</Link></li>
-            <li><Link href="/services" className="text-sbg-black/80 hover:text-black hover:underline underline-offset-4">Services</Link></li>
-            <li><Link href="/about" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">The Brand</Link></li>
+            <li><Link href="/" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Styled by Gloria</Link></li>
+            <li><Link href="/contact" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Contact</Link></li>
+            <li><Link href="/services" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Services</Link></li>
+            <li><Link href="/about" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">The Brand</Link></li>
           </ul>
         </div>
 
@@ -235,14 +235,14 @@ export default function Footer() {
             className="w-full flex items-center justify-between text-left md:hidden"
             aria-expanded={openSections.customer}
           >
-            <span className="font-body text-[10px] tracking-[0.18em] font-bold text-sbg-black/70">
+            <span className="font-body text-[10px] tracking-[0.18em] font-bold text-sbg-white/80">
               02/ Customer Service
             </span>
-            <ChevronIcon isOpen={openSections.customer} className="text-sbg-black/70" />
+            <ChevronIcon isOpen={openSections.customer} className="text-sbg-white/70" />
           </button>
 
           {/* Desktop Static Header */}
-          <span className="hidden md:inline font-body text-[10px] tracking-[0.18em] font-bold text-sbg-black/70">
+          <span className="hidden md:inline font-body text-[10px] tracking-[0.18em] font-bold text-sbg-white/80">
             02/ Customer Service
           </span>
 
@@ -261,11 +261,11 @@ export default function Footer() {
                 className="overflow-hidden md:hidden"
               >
                 <ul className="font-body space-y-3 text-[11px] font-normal tracking-[0.12em] pb-2 pt-2">
-                  <li><Link href="/services" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">Bespoke</Link></li>
-                  <li><Link href="/shipping" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">Shipping Policy</Link></li>
-                  <li><Link href="/returns" className="text-sbg-black/90 hover:text-black hover:underline underline-offset-4">Return & Exchange</Link></li>
-                  <li><Link href="/privacy" className="text-sbg-black/80 hover:text-black hover:underline underline-offset-4">Privacy Policy</Link></li>
-                  <li><Link href="/about" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">Care Instructions</Link></li>
+                  <li><Link href="/services" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Bespoke</Link></li>
+                  <li><Link href="/shipping" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Shipping Policy</Link></li>
+                  <li><Link href="/returns" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Return & Exchange</Link></li>
+                  <li><Link href="/privacy" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Privacy Policy</Link></li>
+                  <li><Link href="/about" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Care Instructions</Link></li>
                 </ul>
               </motion.div>
             )}
@@ -273,11 +273,11 @@ export default function Footer() {
 
           {/* Desktop Static Links */}
           <ul className="hidden md:block space-y-3 text-[11px] font-normal tracking-[0.12em]">
-            <li><Link href="/services" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">Bespoke</Link></li>
-            <li><Link href="/shipping" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">Shipping Policy</Link></li>
-            <li><Link href="/returns" className="text-sbg-black/90 hover:text-black hover:underline underline-offset-4">Return & Exchange</Link></li>
-            <li><Link href="/privacy" className="text-sbg-black/80 hover:text-black hover:underline underline-offset-4">Privacy Policy</Link></li>
-            <li><Link href="/about" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">Care Instructions</Link></li>
+            <li><Link href="/services" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Bespoke</Link></li>
+            <li><Link href="/shipping" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Shipping Policy</Link></li>
+            <li><Link href="/returns" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Return & Exchange</Link></li>
+            <li><Link href="/privacy" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Privacy Policy</Link></li>
+            <li><Link href="/about" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Care Instructions</Link></li>
           </ul>
         </div>
 
@@ -289,14 +289,14 @@ export default function Footer() {
             className="w-full flex items-center justify-between text-left md:hidden"
             aria-expanded={openSections.popular}
           >
-            <span className="font-body text-[10px] tracking-[0.18em] font-bold text-sbg-black/70">
+            <span className="font-body text-[10px] tracking-[0.18em] font-bold text-sbg-white/80">
               03/ Popular Now
             </span>
-            <ChevronIcon isOpen={openSections.popular} className="text-sbg-black/70" />
+            <ChevronIcon isOpen={openSections.popular} className="text-sbg-white/70" />
           </button>
 
           {/* Desktop Static Header */}
-          <span className="hidden md:inline font-body text-[10px] tracking-[0.18em] font-bold text-sbg-black/70">
+          <span className="hidden md:inline font-body text-[10px] tracking-[0.18em] font-bold text-sbg-white/80">
             03/ Popular Now
           </span>
 
@@ -315,10 +315,10 @@ export default function Footer() {
                 className="overflow-hidden md:hidden"
               >
                 <ul className="font-body space-y-3 text-[11px] font-normal tracking-[0.12em] pb-2 pt-2">
-                  <li><Link href="/shop/one-for-all-dress" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">The Cowl Dress</Link></li>
-                  <li><Link href="/shop/one-for-all-dress" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">Onyx Black Dress</Link></li>
-                  <li><Link href="/shop/one-for-all-dress" className="text-sbg-black/80 hover:text-black hover:underline underline-offset-4">Crimson Red Dress</Link></li>
-                  <li><Link href="/shop/one-for-all-dress" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">French Blue Dress</Link></li>
+                  <li><Link href="/shop/one-for-all-dress" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">The Cowl Dress</Link></li>
+                  <li><Link href="/shop/one-for-all-dress" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Onyx Black Dress</Link></li>
+                  <li><Link href="/shop/one-for-all-dress" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Crimson Red Dress</Link></li>
+                  <li><Link href="/shop/one-for-all-dress" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">French Blue Dress</Link></li>
                 </ul>
               </motion.div>
             )}
@@ -326,10 +326,10 @@ export default function Footer() {
 
           {/* Desktop Static Links */}
           <ul className="hidden md:block space-y-3 text-[11px] font-normal tracking-[0.12em]">
-            <li><Link href="/shop/one-for-all-dress" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">The Cowl Dress</Link></li>
-            <li><Link href="/shop/one-for-all-dress" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">Onyx Black Dress</Link></li>
-            <li><Link href="/shop/one-for-all-dress" className="text-sbg-black/80 hover:text-black hover:underline underline-offset-4">Crimson Red Dress</Link></li>
-            <li><Link href="/shop/one-for-all-dress" className="text-sbg-black/85 hover:text-black hover:underline underline-offset-4">French Blue Dress</Link></li>
+            <li><Link href="/shop/one-for-all-dress" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">The Cowl Dress</Link></li>
+            <li><Link href="/shop/one-for-all-dress" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Onyx Black Dress</Link></li>
+            <li><Link href="/shop/one-for-all-dress" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">Crimson Red Dress</Link></li>
+            <li><Link href="/shop/one-for-all-dress" className="text-sbg-white/70 hover:text-white hover:underline underline-offset-4">French Blue Dress</Link></li>
           </ul>
         </div>
 
@@ -341,15 +341,15 @@ export default function Footer() {
             className="w-full flex items-center justify-between text-left md:hidden"
             aria-expanded={openSections.reachOut}
           >
-            <h3 className="font-display text-lg font-bold tracking-[0.15em] uppercase text-sbg-black leading-tight">
+            <h3 className="font-display text-lg font-bold tracking-[0.15em] uppercase text-sbg-white leading-tight">
               REACH OUT SAVE 10% ON EVERYTHING NEW
             </h3>
-            <ChevronIcon isOpen={openSections.reachOut} className="text-sbg-black/70" />
+            <ChevronIcon isOpen={openSections.reachOut} className="text-sbg-white/70" />
           </button>
 
           {/* Desktop Static Header */}
           <div className="hidden md:block">
-            <h3 className="font-display text-base md:text-lg font-bold tracking-[0.15em] uppercase text-sbg-black leading-tight">
+            <h3 className="font-display text-base md:text-lg font-bold tracking-[0.15em] uppercase text-sbg-white leading-tight">
               REACH OUT SAVE 10% ON EVERYTHING NEW
             </h3>
           </div>
@@ -371,7 +371,7 @@ export default function Footer() {
                 <div className="flex space-x-5 pb-2">
                   <a
                     href="mailto:newsletter@styledbygloria.com"
-                    className="text-sbg-black hover:opacity-60 transition-opacity"
+                    className="text-sbg-white hover:opacity-80 transition-opacity"
                     aria-label="Email Newsletter"
                   >
                     <MailIconFilled className="h-8 w-8" />
@@ -380,7 +380,7 @@ export default function Footer() {
                     href="https://wa.me/910000000000"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-sbg-black hover:opacity-60 transition-opacity"
+                    className="text-sbg-white hover:opacity-80 transition-opacity"
                     aria-label="Chat on WhatsApp"
                   >
                     <WhatsappIcon className="h-8 w-8" />
@@ -394,7 +394,7 @@ export default function Footer() {
           <div className="hidden md:flex mt-4 space-x-5">
             <a
               href="mailto:newsletter@styledbygloria.com"
-              className="text-sbg-black hover:opacity-60 transition-opacity"
+              className="text-sbg-white hover:opacity-80 transition-opacity"
               aria-label="Email Newsletter"
             >
               <MailIconFilled className="h-7 w-7" />
@@ -403,7 +403,7 @@ export default function Footer() {
               href="https://wa.me/910000000000"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-sbg-black hover:opacity-60 transition-opacity"
+              className="text-sbg-white hover:opacity-80 transition-opacity"
               aria-label="Chat on WhatsApp"
             >
               <WhatsappIcon className="h-7 w-7" />
