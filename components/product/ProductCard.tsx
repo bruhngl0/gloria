@@ -6,6 +6,8 @@ import Image from "next/image";
 import { formatPrice } from "@/lib/utils";
 import { ShopifyImage, MoneyV2 } from "@/types/shopify";
 
+const CATALOG_DISCOUNT_RATE = 0.25;
+
 interface ProductCardProps {
   handle: string;
   title: string;
@@ -25,6 +27,7 @@ export default function ProductCard({
 }: ProductCardProps) {
   const isNew = tags.includes("new");
   const isSoldOut = !availableForSale;
+  const salePrice = Number.parseFloat(price.amount) * (1 - CATALOG_DISCOUNT_RATE);
 
   const mainImage = images[0] || { url: "/images/point.png", altText: title };
   const hoverImage = images[1] || images[0] || { url: "/images/two.png", altText: title };
@@ -60,6 +63,12 @@ export default function ProductCard({
           </span>
         )}
 
+        {!isSoldOut && (
+          <span className="absolute top-3 right-3 bg-sbg-white text-sbg-black text-[9px] font-bold tracking-widest uppercase px-2.5 py-1 z-10 border border-sbg-border select-none">
+            25% Off
+          </span>
+        )}
+
         {/* "Sold Out" Overlay */}
         {isSoldOut && (
           <div className="absolute inset-0 bg-sbg-black/40 backdrop-blur-[1px] flex items-center justify-center z-10">
@@ -75,9 +84,14 @@ export default function ProductCard({
         <h3 className="text-xs font-semibold tracking-wider text-sbg-black uppercase group-hover:underline decoration-1 underline-offset-4">
           {title}
         </h3>
-        <p className="text-xs tracking-wider text-sbg-grey font-medium">
-          {formatPrice(price.amount, price.currencyCode)}
-        </p>
+        <div className="flex items-baseline gap-2 text-xs tracking-wider font-medium">
+          <span className="text-sbg-black">
+            {formatPrice(salePrice, price.currencyCode)}
+          </span>
+          <span className="text-sbg-grey line-through">
+            {formatPrice(price.amount, price.currencyCode)}
+          </span>
+        </div>
       </div>
     </Link>
   );
